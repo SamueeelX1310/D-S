@@ -768,3 +768,20 @@ body {
     margin-bottom: 100px;
     min-height: 450px;
 }
+html {
+    scroll-behavior: smooth;
+}
+.imagen-separadora {
+    margin: 20px auto 40px;
+    text-align: center;
+}
+.pokedex-img-decor {
+    max-width: 300px; 
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+.stars-section {
+    padding-top: 80px; 
+    position: relative;
+}
