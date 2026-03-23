@@ -748,3 +748,25 @@ body {
     filter: brightness(0.95);
     transition: 0.2s;
 }
+/* Estilo para videos que van en el carril izquierdo (para paradas derechas) */
+.video-dedicatoria.v-left {
+    position: absolute;
+    /* Lo empujamos hacia la izquierda de la línea central */
+    right: 110%; 
+    left: auto;
+    width: 420px;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    border: 3px solid #042452;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 100;
+    top: 40px;
+    transform: rotate(-1.5deg); /* Inclinación hacia el otro lado */
+}
+
+/* Ajuste para que la parada derecha tenga espacio suficiente */
+.parada.right {
+    position: relative;
+    min-height: 500px; /* Asegura que el video no tape el siguiente bloque */
+}
