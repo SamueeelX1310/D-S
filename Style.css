@@ -456,11 +456,11 @@ body {
 }   
 .parada.left { 
     width: 45%;
-    left: 0;                /* Se ancla al borde izquierdo */
+    left: 0;                
     margin-right: auto;
     margin-left: 0;
     position: relative;
-    padding-right: 30px;    /* Espacio antes de la línea central */
+    padding-right: 30px;    
 }
 .parada.left .contenido {
     width: 100%;             
@@ -668,13 +668,11 @@ body {
         margin-top: 20px;
     }
 }
-/* Sección General */
 .stars-section {
     padding: 60px 20px;
-    background-color: #f0f0f0; /* Fondo gris claro para que resalte la tabla blanca */
+    background-color: #f0f0f0; 
     text-align: center;
 }
-
 .stars-header {
     display: flex;
     justify-content: center;
@@ -682,14 +680,11 @@ body {
     gap: 15px;
     margin-bottom: 30px;
 }
-
 .stars-header h2 {
     color: #042452;
     font-family: 'Arial Black', sans-serif;
     text-transform: uppercase;
 }
-
-/* Contenedor de la Tabla */
 .pokedex-table-container {
     max-width: 900px;
     margin: 0 auto;
@@ -699,25 +694,19 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
-
 .pokedex-table {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Arial', sans-serif;
 }
-
-/* Cabecera de la Tabla */
 .pokedex-table th {
     padding: 15px;
     font-size: 1.2rem;
     color: white;
     text-transform: uppercase;
 }
-
-.th-d { background-color: #ff595e; } /* Rojo Pokémon para Ella */
-.th-s { background-color: #1982c4; } /* Azul Pokémon para Ti */
-
-/* Celdas */
+.th-d { background-color: #ff595e; } 
+.th-s { background-color: #1982c4; } 
 .pokedex-table td {
     padding: 20px;
     border-bottom: 2px solid #eee;
@@ -725,25 +714,19 @@ body {
     line-height: 1.5;
     width: 50%;
 }
-
 .td-d {
     text-align: left;
     background-color: #fff5f5;
     border-right: 1px solid #ddd;
 }
-
 .td-s {
     text-align: right;
     background-color: #f5faff;
 }
-
-/* Estrellitas */
 .star-icon {
     font-size: 1.2rem;
     margin: 0 5px;
 }
-
-/* Efecto al pasar el mouse por la fila */
 .pokedex-table tr:hover {
     filter: brightness(0.95);
     transition: 0.2s;
@@ -763,8 +746,25 @@ body {
     z-index: 100;
     transform: rotate(-1.5deg);
 }
-
 .parada.left .contenido {
     width: 100%;
     max-width: 550px;
+}
+.video-dedicatoria.v-right {
+    position: absolute;
+    left: 115%; 
+    right: auto;
+    top: 50px; 
+    width: 420px;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    border: 3px solid #042452;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    z-index: 100;
+    transform: rotate(1.5deg); 
+}
+#historia .timeline .parada:last-child {
+    margin-bottom: 100px;
+    min-height: 450px;
 }
