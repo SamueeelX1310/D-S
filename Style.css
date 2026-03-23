@@ -750,9 +750,10 @@ body {
 }
 .video-dedicatoria.v-left {
     position: absolute;
-    right: 110%; 
-    /* Cambia este valor hasta que veas que el video queda centrado con el texto */
-    top: 150px; 
+    right: 115%; 
+    left: auto;
+    top: 120px; 
+    
     width: 420px;
     background: white;
     padding: 10px;
@@ -763,8 +764,7 @@ body {
     transform: rotate(-1.5deg);
 }
 
-/* IMPORTANTE: Quita o reduce el min-height si ves que el hueco abajo es muy grande */
-.parada.right {
-    position: relative;
-    min-height: 400px; 
+.parada.right .contenido {
+    width: 100%;
+    max-width: 550px;
 }
