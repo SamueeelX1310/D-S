@@ -559,7 +559,7 @@ body {
     50% { transform: translateY(-15px); }
 }
 .ruta-entrenador {
-    background-image: url("./mapa-pokemon.jpg"); 
+    background-color: #ffffff;
     background-size: cover;
     background-position: center;
     background-attachment: fixed; 
