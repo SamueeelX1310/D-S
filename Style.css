@@ -621,7 +621,7 @@ body {
 }
 .video-dedicatoria {
     position: absolute;
-    left: 110%;
+    left: 58%;
     right: -85%; 
     top: 70px;
     width: 550px;
@@ -657,4 +657,17 @@ body {
         transform: none;
         margin-bottom: 20px;
     }
+}
+.video-dedicatoria.v2 {
+    top: 420px; 
+    transform: rotate(-1deg); 
+}
+
+
+.video-dedicatoria.v3 {
+    top: 820px; 
+}
+.video-dedicatoria:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 110;
 }
