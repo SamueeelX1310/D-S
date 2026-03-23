@@ -872,3 +872,27 @@ html {
     padding: 0 20px;
     font-family: 'Georgia', serif; 
 }
+@media (max-width: 768px) {
+    .canciones-container { 
+        display: flex;
+        flex-direction: column; 
+        align-items: center;    
+        gap: 20px;             
+    }
+    .cancion-card {
+        width: 90% !important;  
+        margin: 0 auto;
+    }
+    .video-gigante {
+        width: 95%;
+        border-width: 5px; 
+        border-radius: 15px;
+    }
+    .footer-container {
+        height: 200px; 
+        background-size: cover; 
+    }
+    .footer-dedicatoria {
+        font-size: 1.5rem;
+    }
+}
