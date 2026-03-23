@@ -455,10 +455,12 @@ body {
     box-sizing: border-box;
 }   
 .parada.left { 
-    width:45%;
+    width: 45%;
+    left: 0;                /* Se ancla al borde izquierdo */
     margin-right: auto;
     margin-left: 0;
     position: relative;
+    padding-right: 30px;    /* Espacio antes de la línea central */
 }
 .parada.left .contenido {
     width: 100%;             
