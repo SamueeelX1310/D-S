@@ -1,0 +1,661 @@
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --azul-oscuro: #042452;
+    --cian-neon: #00e0c6;
+    --amarillo-pika: #ffcb05;
+    --verde-bulba: #78c850;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 100px;
+    margin: 0;
+    background-color: #f0f0f0;
+    overflow-x:hidden;
+}
+.navbar {
+    background: var(--azul-oscuro);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    z-index: 1000;
+    padding: 0 40px;
+    border-bottom: 2px solid var(--cian-neon);
+}
+.menu {
+    display: flex;
+    gap: 30px;
+}
+.menu a {
+    border: 2px solid var(--cian-neon);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+.menu a:hover {
+    box-shadow: 0px 0px 15px var(--cian-neon);
+    transform: scale(1.1) translateY(-3px);
+    background-color: var(--amarillo-pika);
+    color: #000;
+}
+.menu a:last-child {
+    animation: pulso 2s infinite;
+}
+.hero {
+    height: 733px;
+    background-image: url("../IMAGENES/pikachu-bulbasaur.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding-top: 90px;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 0 !important;
+    background-position: center 30%;
+    flex-direction: column;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px; /* Reducimos un poco la altura para que no ocupe tanto espacio blanco */
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: aparecer 1.2s ease-out forwards;
+}
+.hero h1 {
+    margin: 0;
+    font-size: 70px;
+    letter-spacing: 3px;
+    margin-bottom:10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+.hero p {
+    font-size: 20px;
+    font-weight: bold;
+}
+.historia {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: aparecer 1.5s ease-out forwards;
+}
+.historia h2 {
+    color: var(--azul-oscuro);
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+.card-historia {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    opacity: 0.9;
+    box-shadow: 0 5px 15px rgba(155, 154, 96, 0.05);
+}
+.card-historia:hover {
+    opacity: 1;
+    transform: scale(1.02);
+    border-left: 10px solid var(--verde-bulba);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.pokedex-container {
+    background-color: #313131;
+    padding: 60px 20px;
+    color: white;
+}
+.pokedex-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.pokedex-header h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.pokedex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.pokemon-card {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    color: #313131;
+}
+.pokemon-card:hover {
+    transform: translateY(-10px);
+}
+.pokemon-img {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pokemon-img img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+.pokemon-info {
+    padding: 15px;
+    background-color: white;
+}
+.pokedex-number {
+    color: #919191;
+    font-weight: bold;
+    font-size: 14px;
+}
+.pokemon-info h3 {
+    margin: 5px 0;
+    font-size: 22px;
+}
+.types {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+.type {
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+:root {
+    --bg-app: #f4f7f6;
+    --bulbasaur-mint: #59d0b8;
+    --pikachu-yellow: #ffcb05;
+    --panel-white: #ffffff;
+    --text-app: #333333;
+    --text-muted: #888888;
+}
+.pokedex-app-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                      url("../IMAGENES/fondo-pokemones.jpg");
+    background-size: cover;      
+    background-position: center;  
+    background-attachment: fixed;
+    padding: 100px 20px;
+    position: relative;
+    border-top: 5px solid var(--verde-bulba);
+    border-bottom: 5px solid var(--verde-bulba);
+    backdrop-filter: blur(4px);
+    border-top: 5px solid var(--verde-bulba);
+    box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.5);
+    color: white;
+}
+.pokedex-app-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.pokemon-app-card {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    width: 350px;
+    height: 600px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.pokemon-app-card:hover {
+    transform: translateY(-10px);
+}
+.bulbasaur-bg {
+    background-color: var(--bulbasaur-mint);
+}
+.pikachu-bg {
+    background-color: var(--pikachu-yellow);
+}
+.card-header {
+    padding: 30px;
+    color: white;
+}
+.bulbasaur-bg .card-header,
+.bulbasaur-bg .app-types .app-type {
+    color: white;
+}
+.pikachu-bg .card-header,
+.pikachu-bg .card-pokedex-number {
+    color: #333;
+}
+.card-pokedex-number {
+    font-weight: bold;
+    font-size: 16px;
+    opacity: 0.8;
+}
+.card-header h3 {
+    font-size: 32px;
+    margin: 5px 0 10px 0;
+}
+.app-pokemon-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 180px;
+    position: relative;
+    z-index: 2;
+}
+.app-pokemon-img img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+}
+.app-info-panel {
+    background-color: var(--panel-white);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px 40px 30px;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+    z-index: 1;
+}
+.pikachu-bg .app-info-panel {
+    height: 49%;
+}
+.bulbasaur-bg .app-info-panel {
+    height: 48%;
+}
+.app-info-panel h4 {
+    color: var(--text-app);
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.app-info-panel ul {
+    list-style: none;
+    padding: 0;
+}
+.app-info-panel li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: var(--text-app);
+    font-size: 14px;
+}
+.app-info-panel li:last-child {
+    border-bottom: none;
+}
+.app-types {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.app-type {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.app-type.amor { background-color: rgba(255, 90, 95, 0.3); color: #ff5a5f; }
+.app-type.tierno { background-color: rgba(164, 172, 175, 0.3); color: #888; }
+.app-type.electrico { background-color: rgba(238, 213, 53, 0.3); color: #666; }
+.app-type.leal { background-color: rgba(77, 173, 255, 0.3); color: #33a2ff; }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    animation: slideUp 0.4s ease-out;
+}
+.modal-content img {
+    width: 120px;
+    margin-bottom: 15px;
+}
+.modal-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+.modal-content p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
+}
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+.bulbasaur-border { border: 5px solid #59d0b8; }
+.pikachu-border { border: 5px solid #ffcb05; }
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.pokemon-app-card {
+    cursor: pointer;
+}
+.ruta-entrenador {
+    padding: 80px 20px;
+
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    border-top: 40px solid white; /* Antes tenías 80px, esto reducirá el espacio muerto */
+    margin-top: -20px; /* Sube un poco la sección para traslapar suavemente con el hero */
+}
+.ruta-header {
+    background-color: rgba(255, 255, 255, 0.9); /* Blanco semi-transparente */
+    padding: 20px;
+    border-radius: 50px; /* Forma de píldora */
+    display: inline-block;
+    margin-bottom: 40px;
+    border: 3px solid var(--azul-oscuro);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.timeline {
+    position: relative;
+    max-width: 900px; /* Ajusta esto para que los cuadros no queden tan lejos de la línea */
+    margin: 0 auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: var(--azul-oscuro);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 10px;
+    z-index: 1;
+}
+.parada {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}   
+.parada.left { left: 0; text-align: right; }
+.parada.right { left: 50%; text-align: left; }
+.contenido {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 15px;
+    z-index: 2; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.contenido {
+    padding: 25px;
+    background-color: white;
+    position: relative;
+    border-radius: 15px;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.contenido:hover {
+    transform: scale(1.03);
+    border: 2px solid var(--cian-neon);
+}
+
+/* --- LAS FLECHITAS (CONECTORES) --- */
+.contenido::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    z-index: 3;
+}
+
+/* Flecha para la izquierda apunta a la derecha */
+.parada.left .contenido::after {
+    right: -15px;
+    border-width: 15px 0 15px 15px;
+    border-color: transparent transparent transparent rgb(198, 39, 39);
+}
+
+/* Flecha para la derecha apunta a la izquierda */
+.parada.right .contenido::after {
+    left: -15px;
+    border-width: 15px 15px 15px 0;
+    border-color: transparent rgb(198, 39, 39) transparent transparent;
+}
+.fecha {
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    display: block;
+    margin-bottom: 5px;
+}
+@media screen and (max-width: 600px) {
+    .timeline::after { left: 31px; }
+    .parada { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .parada::after { left: 21px; }
+    .right { left: 0%; }
+}
+.pkm-ambiente {
+    position: absolute;
+    width: 90px;
+    z-index: 0;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 10px rgba(0,224,198,0.3));
+    animation: flotarAmbiente 5s ease-in-out infinite;
+}
+.pkm-1 { top: 5%; left: 2%; }
+.pkm-2 { top: 40%; right: 2%; animation-delay: 1.5s; }
+.pkm-3 { bottom: 5%; left: 3%; animation-delay: 3s; }
+.contenido p {
+    margin-bottom: 18px;
+    line-height: 1.7;    
+    font-size: 15px;
+    color: #444;
+    text-align: left;
+}
+.contenido h3 {
+    color: var(--azul-oscuro);
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+.contenido strong {
+    color: var(--cian-neon);
+    font-weight: 700;
+}
+.firma {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    font-style: italic;
+    color: var(--azul-oscuro) !important;
+    text-align: right !important;
+}
+@keyframes flotarAmbiente {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+.ruta-entrenador {
+    
+    /* 1. Fondo del mapa */
+    background-image: url("../IMAGENES/mapa-pokemon.jpg"); /* Cambia el nombre al de tu archivo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Esto hace que el mapa se quede quieto al bajar */
+border-top: 20px solid white; 
+    border-bottom: 20px solid white;
+    
+    padding: 0 20px 0px 20px; /* Quitamos el padding superior para que el header suba */
+    margin-top: -50px; /* Subimos la sección para que "muerda" el difuminado de arriba */
+    z-index: 1;
+}
+.ruta-entrenador::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    /* Crea un degradado que va de blanco a transparente sobre el mapa */
+    background: linear-gradient(to bottom, white, transparent);
+    z-index: 2;
+    pointer-events: none; /* Para que no estorbe si haces clic */
+}
+.ruta-entrenador::after {
+    display: none !important; 
+    content: none !important;
+}
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #003057; 
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    z-index: 1;
+}
+.timeline-content {
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto;
+    position: relative;
+}
+.ruta-header {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: 3px solid #042452; 
+    display: table; 
+    margin: -30px auto 40px auto; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 10;
+}
+/* Contenedor del video flotante */
+.video-dedicatoria {
+    position: absolute;
+    right: -85%; /* Lo mueve al área vacía del mapa a la derecha */
+    top: 100px;
+    width: 300px;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border: 3px solid #042452; /* El azul de tu navbar */
+    transform: rotate(2deg); /* Un toque de inclinación tipo foto pegada */
+    z-index: 10;
+}
+
+.video-dedicatoria iframe {
+    width: 100%;
+    height: 170px;
+    border-radius: 10px;
+}
+
+.video-caption {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #042452;
+    margin-top: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Ajuste para que el video no se salga en pantallas pequeñas */
+@media (max-width: 1100px) {
+    .video-dedicatoria {
+        position: relative;
+        right: 0;
+        top: 20px;
+        width: 100%;
+        transform: none;
+        margin-bottom: 20px;
+    }
+}
